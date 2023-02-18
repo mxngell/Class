@@ -1,6 +1,9 @@
 ﻿#include <iostream>
 #include <string>
 #include <locale>
+#include <regex>
+
+#define DEBUG
 
 using namespace std;
 
@@ -10,30 +13,83 @@ private:
 	string name;
 	int year;
 public:
+	int setName(string a) {
+		int error{ 0 };
+		smatch m;
+		if (regex_search(a, m, regex("^[А-Я]{1}[а-я]{1,30}$"))){
+			error = 0;
+		}
+		else {
+			error = -1;
+		}
+		return error;
+	}
+
 	string getName() {
 		return name;
 	};
-	void setName(string a) {
-		if (a == "" or a == " ") {
-			cout << "Invalid param";
-		}
-		else {
-			name = a;
-		}
-	}
+
+
 	int getYear() {
-		cout << year << endl;
-		return 0;
+		return year;
 	};
-	void setYear(int a) {
-		if (a < 0 or a > 2023) {
-			cout << "Invalid param";
+
+
+	int setYear(int curYear) {
+		int error{ 0 };
+		if (curYear < 1 || curYear > 2023 ) {
+			error = -1;
 		}
 		else {
-			year = a;
+			year = curYear;
 		}
+		return error;
 	}
 };
+
+//METHODTEST
+void testPublicationSetYear(Publication obj) {
+	//0 1 2024 -1 2021
+	int curYear{ 1 };
+	if (obj.setYear(curYear) == 0) {
+		cerr << "Test " << curYear << " success!" << endl;
+	}
+	else {
+		cerr << "Test " << curYear << " failed!" << endl;
+	}
+
+	curYear = 0;
+	if (obj.setYear(curYear) == 0) {
+		cerr << "Test " << curYear << " success!" << endl;
+	}
+	else {
+		cerr << "Test " << curYear << " failed!" << endl;
+	}
+
+	curYear = 2024;
+	if (obj.setYear(curYear) == 0) {
+		cerr << "Test " << curYear << " success!" << endl;
+	}
+	else {
+		cerr << "Test " << curYear << " failed!" << endl;
+	}
+
+	curYear = -1;
+	if (obj.setYear(curYear) == 0) {
+		cerr << "Test " << curYear << " success!" << endl;
+	}
+	else {
+		cerr << "Test " << curYear << " failed!" << endl;
+	}
+
+	curYear = 2021;
+	if (obj.setYear(curYear) == 0) {
+		cerr << "Test " << curYear << " success!" << endl;
+	}
+	else {
+		cerr << "Test " << curYear << " failed!" << endl;
+	}
+}
 
 class Book : public Publication {
 private:
@@ -209,24 +265,10 @@ public:
 
 int main() {
 	setlocale(LC_ALL, "Russian");
-
 	Publication test;
-	test.setName("Образование");
-	cout << test.getName() << endl;
 
-	Book testBook;
-	testBook.setISBN("81687-63452");
-	cout << testBook.getISBN() << endl;
-
-	Magazine testMagazine;
-	testMagazine.setRINC(1);
-	cout << testMagazine.getRINC() << endl;
-
-	Article testArticle;
-	testArticle.setPstart(10);
-	testArticle.setPend(15);
-	cout << testArticle.getPstart() << "\t" << testArticle.getPend() << endl;
-
-	testBook.setName("");
-	cout << testBook.getName() << endl;
+#ifdef DEBUG
+	testPublicationSetYear(test);
+#endif
+	cerr << test.setName("Малик");
 }
