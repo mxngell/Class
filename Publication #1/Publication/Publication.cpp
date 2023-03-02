@@ -13,12 +13,12 @@ private:
 	string name;
 	int year;
 public:
-	int setName(string a) {
+	int setName(string newName) {
 		int error{ 0 };
 		smatch m;
-		if (regex_search(a, m, regex("^[А-Я]{1}[а-я]{1,30}$"))){
+		if (regex_search(newName, m, regex("^[А-Я]{1}[а-я]{1,30}$"))){
 			error = 0;
-			name = a;
+			name = newName;
 		}
 		else {
 			error = -1;
@@ -102,41 +102,48 @@ public:
 	string getISBN() {
 		return ISBN;
 	};
-	void setISBN(string isbn) {
+	int setISBN(string isbn) {
+		int error{ 0 };
 		if (isbn == "" or isbn == " ") {
-			cout << "Invalid param";
+			error = -1;
 		}
 		else {
 			ISBN = isbn;
 		}
+		return error;
 	}
 	string getIzd() {
 		return Izd;
 	};
-	void setIzd(string izd) {
+	int setIzd(string izd) {
 		Izd = izd;
+		return 0;
 	}
 	int getPubCount() {
 		return PubCount;
 	};
-	void setPubCount(int pCount) {
+	int setPubCount(int pCount) {
+		int error{ 0 };
 		if (pCount < 0 or pCount > 100) {
-			cout << "Invalid param";
+			error = -1;
 		}
 		else {
 			PubCount = pCount;
 		}
+		return error;
 	}
 	string getAuthor() {
 		return Author;
 	};
-	void setAuthor(string auth) {
+	int setAuthor(string auth) {
+		int error{ 0 };
 		if (auth == "" or auth == " ") {
-			cout << "Invalid param";
+			error = -1;
 		}
 		else {
 			Author = auth;
 		}
+		return error;
 	}
 };
 
@@ -156,19 +163,22 @@ public:
 	string getISBN() {
 		return ISBN;
 	};
-	void setISBN(string isbn) {
+	int setISBN(string isbn) {
+		int error{ 0 };
 		if (isbn == "" or isbn == " ") {
-			cout << "Invalid param";
+			error = -1;
 		}
 		else {
 			ISBN = isbn;
 		}
+		return error;
 	}
 	string getIzd() {
 		return Izd;
 	};
-	void setIzd(string izd) {
+	int setIzd(string izd) {
 		Izd = izd;
+		return 0;
 	}
 	int getPubCount() {
 		return PubCount;
@@ -184,43 +194,50 @@ public:
 	string getAuthor() {
 		return Author;
 	};
-	void setAuthor(string auth) {
+	int setAuthor(string auth) {
 		Author = auth;
+		return 0;
 	}
 	int getTom() {
 		return Tom;
 	};
-	void setTom(int tom) {
+	int setTom(int tom) {
+		int error{ 0 };
 		if (tom < 0 or tom > 10) {
-			cout << "Invalid param";
+			error = -1;
 		}
 		else {
 			Tom = tom;
 		}
+		return error;
 	}
 	int getNumber() {
 		return Number;
 	};
-	void setNumber(int num) {
+	int setNumber(int num) {
 		Number = num;
+		return 0;
 	}
 	bool getScoups() {
 		return Scoups;
 	};
-	void setScoups(bool scoups) {
+	int setScoups(bool scoups) {
 		Scoups = scoups;
+		return 0;
 	}
 	bool getWoS() {
 		return WoS;
 	};
-	void setWoS(bool wos) {
+	int setWoS(bool wos) {
 		WoS = wos;
+		return 0;
 	}
 	bool getRINC() {
 		return RINC;
 	};
-	void setRINC(bool rinc) {
+	int setRINC(bool rinc) {
 		RINC = rinc;
+		return 0;
 	}
 };
 
@@ -234,42 +251,45 @@ public:
 	string getAuthor() {
 		return Author;
 	};
-	void setAuthor(string auth) {
+	int setAuthor(string auth) {
+		int error{ 0 };
 		if (auth == "" or auth == " ") {
-			cout << "Invalid param";
+			error = -1;
 		}
 		else {
 			Author = auth;
 		}
+		return error;
 	}
 	int getPstart() {
 		return Pstart;
 	};
-	void setPstart(int pStart) {
+	int setPstart(int pStart) {
 		Pstart = pStart;
+		return 0;
 	}
 	int getPend() {
 		return Pend;
 	};
-	void setPend(int pEnd) {
+	int setPend(int pEnd) {
 		Pend = pEnd;
+		return 0;
 	}
 	bool getStatus() {
 		return Status;
 	};
-	void setStatus(bool status) {
+	int setStatus(bool status) {
 			Status = status;
+			return 0;
 	}
 };
 
 
 int main() {
 	setlocale(LC_ALL, "Russian");
-	Publication test;
 
 #ifdef DEBUG
 	testPublicationSetYear(test);
 #endif
 
-	cerr << test.setName("Малик") << endl;
 }
