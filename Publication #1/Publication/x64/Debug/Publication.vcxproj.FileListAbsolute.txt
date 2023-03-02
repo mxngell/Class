@@ -1,1 +1,2 @@
 C:\PO\C++. Class\Class\Publication #1\Publication\x64\Debug\Publication.exe
+D:\Git Extensions\GitRepos\Class\Publication #1\Publication\x64\Debug\Publication.exe

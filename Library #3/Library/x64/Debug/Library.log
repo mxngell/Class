@@ -1,0 +1,11 @@
+﻿  Library.cpp
+D:\Git Extensions\GitRepos\Class\Library #3\Library\Library.cpp(19,38): warning C4566: character represented by universal-character-name '\u0410' cannot be represented in the current code page (1252)
+D:\Git Extensions\GitRepos\Class\Library #3\Library\Library.cpp(19,38): warning C4566: character represented by universal-character-name '\u042F' cannot be represented in the current code page (1252)
+D:\Git Extensions\GitRepos\Class\Library #3\Library\Library.cpp(19,38): warning C4566: character represented by universal-character-name '\u0430' cannot be represented in the current code page (1252)
+D:\Git Extensions\GitRepos\Class\Library #3\Library\Library.cpp(19,38): warning C4566: character represented by universal-character-name '\u044F' cannot be represented in the current code page (1252)
+D:\Git Extensions\GitRepos\Class\Library #3\Library\Library.cpp(51,23): warning C4566: character represented by universal-character-name '\u041C' cannot be represented in the current code page (1252)
+D:\Git Extensions\GitRepos\Class\Library #3\Library\Library.cpp(51,23): warning C4566: character represented by universal-character-name '\u0430' cannot be represented in the current code page (1252)
+D:\Git Extensions\GitRepos\Class\Library #3\Library\Library.cpp(51,23): warning C4566: character represented by universal-character-name '\u043B' cannot be represented in the current code page (1252)
+D:\Git Extensions\GitRepos\Class\Library #3\Library\Library.cpp(51,23): warning C4566: character represented by universal-character-name '\u0438' cannot be represented in the current code page (1252)
+D:\Git Extensions\GitRepos\Class\Library #3\Library\Library.cpp(51,23): warning C4566: character represented by universal-character-name '\u043A' cannot be represented in the current code page (1252)
+  Library.vcxproj -> D:\Git Extensions\GitRepos\Class\Library #3\Library\x64\Debug\Library.exe
