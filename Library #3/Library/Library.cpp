@@ -4,7 +4,7 @@
 #include <regex>
 
 
-#define DEBUG
+#define TESTINGFUNC
 
 using namespace std;
 
@@ -41,7 +41,7 @@ public:
 		smatch n;
 		int error{ 0 };
 		if (regex_search(newSurname, n, regex("^[А-Я]{1}[а-я]{1,30}$"))) {
-			name = newSurname;
+			surname = newSurname;
 			error = 0;
 		}
 		else {
@@ -54,15 +54,23 @@ public:
 	}
 
 	int setName(string newName) {
-		name = newName;
-		return 0;
+		smatch n;
+		int error{ 0 };
+		if (regex_search(newName, n, regex("^[А-Я]{1}[а-я]{1,30}$"))) {
+			name = newName;
+			error = 0;
+		}
+		else {
+			error = -1;
+		}
+		return error;
 	}
 	string getName() {
 		return name;
 	}
 
-	int setSex(bool sex) {
-		sex = sex;
+	int setSex(bool curSex) {
+		sex = curSex;
 		return 0;
 	}
 	bool getSex() {
@@ -254,8 +262,26 @@ public:
 	}
 };
 
-class Sbornik {
+class Sbornik: public Publication{
+private:
+	string ISBN;
+public:
+	string getISBN() {
+		return ISBN;
+	};
 
+	int setISBN(string isbn) {
+		int error{ 0 };
+		smatch n;
+		if (regex_search(isbn, n, regex("^[0-9]{3}-[0-9]{1}-[0-9]{2,7}-[0-9]{2}-[0-9]{1}$"))) {
+			error = 0;
+			ISBN = isbn;
+		}
+		else {
+			error = -1;
+		}
+		return error;
+	}
 };
 
 //TESTING METHOD
@@ -305,9 +331,9 @@ void testNewspaperSetNumber(Newspaper obj) {
 
 int main() {
 	setlocale(LC_ALL, "Russian");
-	Newspaper test;
 
-#ifdef DEBUG
+#ifdef TESTINGFUNC
+	Newspaper test;
 	testNewspaperSetNumber(test);
 #endif
 	

@@ -3,7 +3,7 @@
 #include <locale>
 #include <regex>
 
-//#define DEBUG
+#define TESTINGFUNC
 
 using namespace std;
 
@@ -288,7 +288,8 @@ public:
 int main() {
 	setlocale(LC_ALL, "Russian");
 
-#ifdef DEBUG
+#ifdef TESTINGFUNC
+	Publication test;
 	testPublicationSetYear(test);
 #endif
 
