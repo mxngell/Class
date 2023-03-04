@@ -1,14 +1,2 @@
 ﻿  Reader.cpp
-D:\Git Extensions\GitRepos\Class\Reader #2\Reader\Reader.cpp(28,38): warning C4566: character represented by universal-character-name '\u0410' cannot be represented in the current code page (1252)
-D:\Git Extensions\GitRepos\Class\Reader #2\Reader\Reader.cpp(28,38): warning C4566: character represented by universal-character-name '\u042F' cannot be represented in the current code page (1252)
-D:\Git Extensions\GitRepos\Class\Reader #2\Reader\Reader.cpp(28,38): warning C4566: character represented by universal-character-name '\u0430' cannot be represented in the current code page (1252)
-D:\Git Extensions\GitRepos\Class\Reader #2\Reader\Reader.cpp(28,38): warning C4566: character represented by universal-character-name '\u044F' cannot be represented in the current code page (1252)
-D:\Git Extensions\GitRepos\Class\Reader #2\Reader\Reader.cpp(91,38): warning C4566: character represented by universal-character-name '\u0410' cannot be represented in the current code page (1252)
-D:\Git Extensions\GitRepos\Class\Reader #2\Reader\Reader.cpp(91,38): warning C4566: character represented by universal-character-name '\u042F' cannot be represented in the current code page (1252)
-D:\Git Extensions\GitRepos\Class\Reader #2\Reader\Reader.cpp(91,38): warning C4566: character represented by universal-character-name '\u0430' cannot be represented in the current code page (1252)
-D:\Git Extensions\GitRepos\Class\Reader #2\Reader\Reader.cpp(91,38): warning C4566: character represented by universal-character-name '\u044F' cannot be represented in the current code page (1252)
-D:\Git Extensions\GitRepos\Class\Reader #2\Reader\Reader.cpp(130,38): warning C4566: character represented by universal-character-name '\u0410' cannot be represented in the current code page (1252)
-D:\Git Extensions\GitRepos\Class\Reader #2\Reader\Reader.cpp(130,38): warning C4566: character represented by universal-character-name '\u042F' cannot be represented in the current code page (1252)
-D:\Git Extensions\GitRepos\Class\Reader #2\Reader\Reader.cpp(130,38): warning C4566: character represented by universal-character-name '\u0430' cannot be represented in the current code page (1252)
-D:\Git Extensions\GitRepos\Class\Reader #2\Reader\Reader.cpp(130,38): warning C4566: character represented by universal-character-name '\u044F' cannot be represented in the current code page (1252)
-  Reader.vcxproj -> D:\Git Extensions\GitRepos\Class\Reader #2\Reader\x64\Debug\Reader.exe
+  Reader.vcxproj -> C:\PO\Class\Class\Reader #2\Reader\x64\Debug\Reader.exe

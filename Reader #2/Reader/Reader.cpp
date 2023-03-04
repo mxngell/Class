@@ -10,18 +10,10 @@ using namespace std;
 
 class Human {
 private:
-	string imagination;
-	bool sex;
 	string name;
+	bool sex;
+	int bookCount;
 public:
-	int setSex(bool curSex) {
-		sex = curSex;
-		return 0;
-	}
-	bool getSex() {
-		return sex;
-	}
-
 	int setName(string newName) {
 		smatch n;
 		int error{ 0 };
@@ -38,35 +30,65 @@ public:
 		return name;
 	}
 
-	int setImagination(string curImagination) {
-		imagination = curImagination;
+	int setSex(bool curSex) {
+		sex = curSex;
 		return 0;
 	}
-	string getImagination() {
-		return imagination;
+	bool getSex() {
+		return sex;
 	}
-};
 
-class Book {
-private:
-	string author;
-	string ISBN;
-	string name;
-public:
-	int setAuthor(string auth) {
+	int setBookCount(int curCount) {
 		int error{ 0 };
-		if (auth == "" or auth == " ") {
+		if (curCount < 1) {
 			error = -1;
-		}
-		else {
-			author = auth;
+		} else {
+			bookCount = curCount;
 		}
 		return error;
 	}
 
-	string getAuthor() {
-		return author;
+	int getBookCount() {
+		return bookCount;
 	}
+};
+
+class Imaginatiom {
+private:
+	string obraz;
+public:
+	int setObraz(string) {
+
+	}
+	string getObraz() {
+		return obraz;
+	}
+};
+
+
+class Book {
+private:
+	string name;
+	string author;
+	string ISBN;
+	int prCount;
+public:
+	int setName(string newName) {
+		int error{ 0 };
+		smatch m;
+		if (regex_search(newName, m, regex("^[А-Я]{1}[а-я]{1,30}$"))) {
+			error = 0;
+			name = newName;
+		}
+		else {
+			error = -1;
+		}
+		return error;
+	}
+
+	string getName() {
+		return name;
+	};
 
 	string getISBN() {
 		return ISBN;
@@ -85,37 +107,16 @@ public:
 		return error;
 	}
 
-	int setName(string newName) {
-		int error{ 0 };
-		smatch m;
-		if (regex_search(newName, m, regex("^[А-Я]{1}[а-я]{1,30}$"))) {
-			error = 0;
-			name = newName;
-		}
-		else {
-			error = -1;
-		}
-		return error;
-	}
 
-	string getName() {
-		return name;
-	};
-};
-
-
-class Proisvedenie {
-private:
-	string author;
-	string name;
-public:
 	int setAuthor(string auth) {
 		int error{ 0 };
-		if (auth == "" or auth == " ") {
-			error = -1;
+		smatch n;
+		if (regex_search(auth, n, regex("^[А-Я]{1}[а-я]{1,} [А-Я]{1}. [А-Я]{1}.$"))){
+			error = 0;
 		}
 		else {
 			author = auth;
+			error = -1;
 		}
 		return error;
 	}
@@ -124,6 +125,26 @@ public:
 		return author;
 	}
 
+	int setPrCount(int curCount) {
+		int error{ 0 };
+		if (curCount < 1 and curCount > 10) {
+			error = -1;
+		}
+		else {
+			prCount = prCount;
+		}
+		return error;
+	}
+
+	int getPrCount() {
+		return prCount;
+	}
+};
+
+class Proizvedenie {
+private:
+	string name;
+public:
 	int setName(string newName) {
 		int error{ 0 };
 		smatch m;
@@ -143,37 +164,61 @@ public:
 
 };
 
+
+class Story {
+private:
+
+public:
+
+};
+
+
+class Character {
+private:
+	string name;
+	bool antagonist;
+	bool protagonist;
+public:
+	int setName(string newName) {
+		int error{ 0 };
+		smatch m;
+		if (regex_search(newName, m, regex("^[А-Я]{1}[а-я]{1,30}$"))) {
+			error = 0;
+			name = newName;
+		}
+		else {
+			error = -1;
+		}
+		return error;
+	}
+
+	string getName() {
+		return name;
+	};
+
+	int setAntagonist(bool curStatus) {
+		int error{ 0 };
+		if (curStatus == 0 or curStatus == 1) {
+			antagonist = curStatus;
+		}
+		else {
+			error = -1;
+		}
+		return error;
+	}
+	
+	bool getAntagonist(){
+		return antagonist;
+	}
+};
+
 //TESTING METHOD
-void testBookSetISBN(Book obj) {
-	string curISBN{ "123-21-321-33" };
-	if (obj.setISBN(curISBN) == 0) {
-		cerr << "Test " << curISBN << " success!" << endl;
-	}
-	else {
-		cerr << "Test " << curISBN << " failed!" << endl;
-	}
-	curISBN = "1233-2211-3321";
-	if (obj.setISBN(curISBN) == 0) {
-		cerr << "Test " << curISBN << " success!" << endl;
-	}
-	else {
-		cerr << "Test " << curISBN << " failed!" << endl;
-	}
-	curISBN = "623-2-332-23-1";
-	if (obj.setISBN(curISBN) == 0) {
-		cerr << "Test " << curISBN << " success!" << endl;
-	}
-	else {
-		cerr << "Test " << curISBN << " failed!" << endl;
-	}
-}
+
 
 int main() {
 	setlocale(LC_ALL, "Russian");
 	
-#ifdef TESTINGFUNC
 	Book test;
-	testBookSetISBN(test);
-#endif
+
 	return 0;
 }

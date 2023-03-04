@@ -60,7 +60,7 @@ void testPublicationSetYear(Publication obj) {
 	}
 
 	curYear = 0;
-	if (obj.setYear(curYear) == 0) {
+	if (obj.setYear(curYear) == -1) {
 		cerr << "Test " << curYear << " success!" << endl;
 	}
 	else {
@@ -76,7 +76,7 @@ void testPublicationSetYear(Publication obj) {
 	}
 
 	curYear = -1;
-	if (obj.setYear(curYear) == 0) {
+	if (obj.setYear(curYear) == -1) {
 		cerr << "Test " << curYear << " success!" << endl;
 	}
 	else {
@@ -287,9 +287,8 @@ public:
 
 int main() {
 	setlocale(LC_ALL, "Russian");
-
-#ifdef TESTINGFUNC
 	Publication test;
+#ifdef TESTINGFUNC
 	testPublicationSetYear(test);
 #endif
 

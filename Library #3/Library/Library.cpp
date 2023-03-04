@@ -296,7 +296,7 @@ void testNewspaperSetNumber(Newspaper obj) {
 	}
 
 	curNumber = 0;
-	if (obj.setNumber(curNumber) == 0) {
+	if (obj.setNumber(curNumber) == -1) {
 		cerr << "Test " << curNumber << " success!" << endl;
 	}
 	else {
@@ -312,7 +312,7 @@ void testNewspaperSetNumber(Newspaper obj) {
 	}
 
 	curNumber = -1;
-	if (obj.setNumber(curNumber) == 0) {
+	if (obj.setNumber(curNumber) == -1) {
 		cerr << "Test " << curNumber << " success!" << endl;
 	}
 	else {
@@ -320,7 +320,7 @@ void testNewspaperSetNumber(Newspaper obj) {
 	}
 
 	curNumber = 2.3;
-	if (obj.setNumber(curNumber) == 0) {
+	if (obj.setNumber(curNumber) == -1) {
 		cerr << "Test " << curNumber << " success!" << endl;
 	}
 	else {
@@ -331,9 +331,9 @@ void testNewspaperSetNumber(Newspaper obj) {
 
 int main() {
 	setlocale(LC_ALL, "Russian");
+	Newspaper test;
 
 #ifdef TESTINGFUNC
-	Newspaper test;
 	testNewspaperSetNumber(test);
 #endif
 	
