@@ -167,9 +167,24 @@ public:
 
 class Story {
 private:
-
+	bool happyEnd;
+	bool unhappyEnd;
 public:
+	int setHappyEnd(bool curEnd) {
+		happyEnd = curEnd;
+		return 0;
+	}
+	bool getHappyEnd() {
+		return happyEnd;
+	}
 
+	int setUnhappyEnd(bool curEnd) {
+		unhappyEnd = curEnd;
+		return 0;
+	}
+	bool getUnhappyEnd() {
+		return unhappyEnd;
+	}
 };
 
 
@@ -213,12 +228,48 @@ public:
 };
 
 //TESTING METHOD
-
+void testHumanSetBookCount(Human obj) {
+	//1
+	int curCount = 1;
+	if (obj.setBookCount(curCount) == 0) {
+		cerr << "Test " << curCount << " success!" << endl;
+	}
+	else {
+		cerr << "Test " << curCount << " failed!" << endl;
+	}
+	//2
+	curCount = 2;
+	if (obj.setBookCount(curCount) == 0) {
+		cerr << "Test " << curCount << " success!" << endl;
+	}
+	else {
+		cerr << "Test " << curCount << " failed!" << endl;
+	}
+	//0
+	curCount = 0;
+	if (obj.setBookCount(curCount) != 0) {
+		cerr << "Test " << curCount << " success!" << endl;
+	}
+	else {
+		cerr << "Test " << curCount << " failed!" << endl;
+	}
+	//-1
+	curCount = -1;
+	if (obj.setBookCount(curCount) != 0) {
+		cerr << "Test " << curCount << " success!" << endl;
+	}
+	else {
+		cerr << "Test " << curCount << " failed!" << endl;
+	}
+}
 
 int main() {
 	setlocale(LC_ALL, "Russian");
 	
-	Book test;
+	Human test;
+#ifdef TESTINGFUNC
+	testHumanSetBookCount(test);
+#endif // TESTINGFUNC
 
 	return 0;
 }
